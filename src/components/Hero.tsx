@@ -59,9 +59,6 @@ export default function Hero({ ready }: { ready: boolean }) {
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const px = useSpring(mx, { stiffness: 60, damping: 18 });
-  const py = useSpring(my, { stiffness: 60, damping: 18 });
-  const rotY = useTransform(px, (v) => v * 1.1);
-  const rotX = useTransform(py, (v) => v * -0.9);
   const nameShiftX = useTransform(px, (v) => v * -1.2);
 
 
