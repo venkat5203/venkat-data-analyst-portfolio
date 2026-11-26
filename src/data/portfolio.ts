@@ -39,31 +39,31 @@ export type Metric = { value: string; label: string };
 export type Project = { id: string; index: string; title: string; year: string; kind: string; summary: string; stack: string[]; contribution: string[]; features: string[]; metrics: Metric[]; github?: string; live?: string; motif: 'scan' | 'flow' | 'tenants' };
 export const projects: Project[] = [
   {
-    id: 'real-retail-data-quality', index: '01', title: '2026 Retail Product Data Quality & Analytics', year: 'Live project', kind: 'Data Analytics · Data Quality · Business Intelligence',
-    summary: 'Built a reproducible Python quality-audit pipeline using Open Food Facts product records reported as modified in 2026. Audits missing product attributes, duplicate barcodes, invalid nutrient values and record completeness. This is product-catalogue data, not sales or transaction data.',
+    id: 'real-retail-data-quality', index: '01', title: 'Real-World Retail Data Quality & Analytics', year: 'Historical dataset · 2010–2011', kind: 'Data Analytics · Data Quality · Business Intelligence',
+    summary: 'Built a reproducible Python quality-audit pipeline using the UCI Online Retail transaction dataset. The source contains 541,909 real historical invoice-line records dated December 2010 to December 2011. The project audits missing values, exact duplicates, cancellation invoices, non-positive quantities and prices, then creates a cleaned analysis copy and SQL-ready outputs.',
     stack: ['Python', 'Pandas', 'SQL', 'SQLite', 'React', 'Vite', 'Recharts'],
     contribution: [
-      'Created a repeatable pipeline that retrieves and hashes a bounded Open Food Facts API snapshot, filters product records by last-modified date from 1 January 2026, and records source metadata.',
-      'Applied quality rules for missing names, brands, categories, ingredients and nutrition fields, duplicate barcodes, barcode format and negative nutrient values.',
-      'Built SQLite and SQL analysis outputs plus an interactive dashboard for catalogue freshness, completeness, category and brand coverage, recently updated products and quality findings.'
+      'Downloaded the dataset from the UCI Machine Learning Repository, recorded its SHA-256 hash, and checked its expected schema and reference row count.',
+      'Audited missing fields, exact duplicate rows, non-positive quantities and unit prices, and cancellation / credit invoices.',
+      'Built a separate cleaned transaction dataset, SQLite analysis database, SQL examples and an interactive business-quality dashboard.'
     ],
-    features: ['Open Food Facts records updated in 2026', 'Missing-field and barcode audit', 'Nutrition validation and completeness', 'Catalogue freshness dashboard'],
-    metrics: [{ value: '2026', label: 'Required product update year' }, { value: 'Python', label: 'Reproducible audit pipeline' }, { value: 'SQLite', label: 'SQL analysis database' }, { value: 'Live', label: 'Interactive dashboard' }],
+    features: ['541,909 historical transaction rows', '5,268 exact duplicate rows flagged', 'Missing CustomerID and cancellation audit', 'Monthly revenue and country analysis'],
+    metrics: [{ value: '541,909', label: 'Source transaction rows' }, { value: '5,268', label: 'Exact duplicate rows flagged' }, { value: '524,878', label: 'Clean positive-sale rows' }, { value: '£10.64M', label: 'Clean positive-sales revenue' }],
     github: 'https://github.com/venkat5203/real-world-retail-data-quality-analytics',
     live: 'https://real-retail-data-quality-analytics.vercel.app/',
     motif: 'scan'
   },
   {
-    id: 'retailrocket-recommender', index: '02', title: 'Current Product Content-Based Recommendation System', year: 'Live project', kind: 'Recommendation Systems · Content Similarity · Ranking',
-    summary: 'Developed a content-based recommendation workflow using Open Food Facts product records reported as modified in 2026. Product names, brands, categories, quantities, ingredients and nutrition grades are converted into TF-IDF features, ranked with cosine similarity and diversified using MMR. No customer behaviour or purchase events are claimed.',
-    stack: ['Python', 'scikit-learn', 'TF-IDF', 'Cosine Similarity', 'Maximal Marginal Relevance (MMR)'],
+    id: 'retailrocket-recommender', index: '02', title: 'RetailRocket E-commerce Recommendation System', year: 'Historical dataset · 2015', kind: 'Recommendation Systems · Collaborative Filtering · Ranking Evaluation',
+    summary: 'Built a recommendation workflow using the authentic RetailRocket e-commerce behavioural dataset: 2.76 million view, add-to-cart and transaction events from May to September 2015. Compared popularity, item-item collaborative filtering (Item-KNN) and latent-factor SVD using a time-based offline evaluation split.',
+    stack: ['Python', 'Pandas', 'NumPy', 'SciPy', 'scikit-learn', 'Item-KNN', 'Truncated SVD'],
     contribution: [
-      'Built a product-content recommendation workflow over the current 2026-updated Open Food Facts catalogue.',
-      'Created TF-IDF text features from product names, brands, categories, quantities, ingredients and nutrition grades, then ranked products by cosine similarity.',
-      'Applied Maximal Marginal Relevance (MMR) reranking to balance relevance with diversity in the top recommendations.'
+      'Prepared visitor-item interactions from view, add-to-cart and transaction events, with stronger weights for higher-intent events.',
+      'Applied chronological data splitting and interaction filtering to reduce future-data leakage in offline evaluation.',
+      'Compared popularity, Item-KNN and SVD models using Precision@K, Recall@K, HitRate@K, NDCG@K, MAP@K and catalogue coverage; added a visitor recommendation explorer.'
     ],
-    features: ['2026-updated public product catalogue', 'TF-IDF product representations', 'Cosine similarity ranking', 'MMR diversity reranking'],
-    metrics: [{ value: '2026', label: 'Required product update year' }, { value: 'TF-IDF', label: 'Content representation' }, { value: 'MMR', label: 'Diversity reranking' }, { value: 'Live', label: 'Interactive application' }],
+    features: ['2,756,101 behavioural events', '1,407,580 visitors and 235,061 items', 'Popularity, Item-KNN and SVD models', 'Time-based offline ranking evaluation'],
+    metrics: [{ value: '2.76M', label: 'Behavioural events' }, { value: '1.41M', label: 'Visitors' }, { value: '0.0161', label: 'Item-KNN NDCG@10' }, { value: '0.0225', label: 'SVD Recall@10' }],
     github: 'https://github.com/venkat5203/retailrocket-recommender',
     live: 'https://retailrocket-recommender-retailrock.vercel.app/',
     motif: 'tenants'
