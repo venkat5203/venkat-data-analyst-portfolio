@@ -18,9 +18,9 @@ export const profile = {
 
 export const stats = [
   { value: 2.5, decimals: 1, suffix: '+', label: 'Years of experience' },
-  { value: 47000, decimals: 0, suffix: '+', label: 'Records analyzed in project' },
-  { value: 95, decimals: 0, suffix: '%', label: 'Reported data accuracy' },
-  { value: 55, decimals: 0, suffix: '%', label: 'Quality failures from two error types' },
+  { value: 47000, decimals: 0, suffix: '+', label: 'Synthetic operational rows' },
+  { value: 95, decimals: 0, suffix: '%', label: 'Simulated QA accuracy' },
+  { value: 55, decimals: 0, suffix: '%', label: 'Simulated failures from two error types' },
 ];
 
 export const education = [
@@ -41,20 +41,50 @@ export type Metric = { value: string; label: string };
 export type Project = { id: string; index: string; title: string; year: string; kind: string; summary: string; stack: string[]; contribution: string[]; features: string[]; metrics: Metric[]; github?: string; live?: string; motif: 'scan' | 'flow' | 'tenants' };
 export const projects: Project[] = [
   {
-    id: 'data-quality-sla', index: '01', title: 'Data Quality & SLA Monitoring Analysis', year: 'Case study', kind: 'Data Analytics · Quality · SLA',
-    summary: 'Analyzed a 47,000+ record operational dataset to identify quality failure drivers and monitor accuracy, SLA compliance, exceptions and monthly trends.',
-    stack: ['SQL', 'Python', 'Pandas', 'Excel'],
+    id: 'real-retail-data-quality', index: '01', title: 'Real-World Retail Data Quality & Analytics', year: 'Live project', kind: 'Data Analytics · Data Quality · Business Intelligence',
+    summary: 'Built a reproducible Python data-quality and analytics pipeline using the documented UCI Online Retail historical transaction dataset. Audits missing values, duplicates, invalid quantities and prices, and separates cancellation transactions for contextual analysis.',
+    stack: ['Python', 'Pandas', 'SQL', 'SQLite', 'React', 'Vite', 'Recharts'],
     contribution: [
-      'Analyzed 47,000+ records with SQL joins, CTEs, window functions and subqueries to investigate performance outliers and process-quality drivers.',
-      'Identified two error types responsible for 55% of quality failures, highlighting focus areas for root-cause analysis.',
-      'Created an Excel KPI dashboard using COUNTIFS, SUMIFS and AVERAGEIFS to track accuracy, SLA compliance, exceptions and monthly trends across five document categories.'
+      'Created a repeatable pipeline that downloads and verifies the public UCI source file, preserves the raw workbook, and generates audit and analysis outputs.',
+      'Applied documented quality rules for missing customer IDs, duplicate rows, non-positive quantities and prices, and cancellation invoices.',
+      'Built SQL analysis outputs and an interactive dashboard for monthly revenue, country performance, product performance and data-quality findings.'
     ],
-    features: ['47,000+ record dataset', 'Quality failure analysis', 'SLA and exception KPIs', 'Five document categories'],
-    metrics: [{ value: '47K+', label: 'Records analyzed' }, { value: '55%', label: 'Failures from two error types' }, { value: '5', label: 'Document categories' }, { value: 'KPI', label: 'Quality and SLA monitoring' }],
-    github: 'https://github.com/venkat5203/data-quality-sla-monitoring-', motif: 'scan'
+    features: ['UCI Online Retail historical data', 'Missing-value and duplicate audit', 'Cancellation and invalid-value checks', 'Revenue and product dashboard'],
+    metrics: [{ value: 'UCI', label: 'Documented public source' }, { value: 'Python', label: 'Reproducible audit pipeline' }, { value: 'SQLite', label: 'SQL analysis database' }, { value: 'Live', label: 'Interactive dashboard' }],
+    github: 'https://github.com/venkat5203/real-world-retail-data-quality-analytics',
+    live: 'https://real-retail-data-quality-analytics.vercel.app/',
+    motif: 'scan'
   },
   {
-    id: 'sales-operations', index: '02', title: 'Sales & Operations Data Analysis', year: 'Case study', kind: 'Data Analytics · Dashboard',
+    id: 'retailrocket-recommender', index: '02', title: 'RetailRocket Session-Based Recommendation System', year: 'Live project', kind: 'Recommendation Systems · Ranking · Evaluation',
+    summary: 'Developed a product recommendation workflow around RetailRocket behavioural data, with session-oriented recommendations and offline benchmark experiments to compare ranking approaches.',
+    stack: ['Python', 'Pandas', 'Recommendation Systems', 'Ranking', 'Offline Evaluation'],
+    contribution: [
+      'Built a recommendation workflow using RetailRocket interaction data to produce product suggestions from user-session behaviour.',
+      'Ran benchmark experiments to compare recommendation variants and inspect their offline evaluation results.',
+      'Explored maximal marginal relevance (MMR) reranking to balance recommendation relevance with item diversity.'
+    ],
+    features: ['Session-oriented product recommendations', 'Candidate ranking experiments', 'Offline benchmark evaluation', 'MMR-based diversity reranking'],
+    metrics: [{ value: 'RetailRocket', label: 'Behavioural dataset' }, { value: 'Session', label: 'Recommendation context' }, { value: 'MMR', label: 'Diversity reranking' }, { value: 'Live', label: 'Interactive application' }],
+    github: 'https://github.com/venkat5203/retailrocket-recommender',
+    live: 'https://retailrocket-recommender-retailrock.vercel.app/',
+    motif: 'tenants'
+  },
+  {
+    id: 'data-quality-sla', index: '03', title: 'Data Quality & SLA Monitoring Analysis', year: 'Synthetic case study', kind: 'Data Analytics · Quality · SLA · Synthetic Dataset',
+    summary: 'Analyzed a 47,000+ row synthetic operational dataset to demonstrate quality-failure analysis and monitoring of accuracy, SLA compliance, exceptions and monthly trends. The records are generated for practice and are not real company data.',
+    stack: ['SQL', 'Python', 'Pandas', 'Excel'],
+    contribution: [
+      'Analyzed a generated operational dataset with SQL joins, CTEs, window functions and subqueries to investigate performance outliers and process-quality drivers.',
+      'Identified two error types responsible for 55% of the simulated quality failures, highlighting focus areas for root-cause analysis.',
+      'Created an Excel KPI dashboard using COUNTIFS, SUMIFS and AVERAGEIFS to track accuracy, SLA compliance, exceptions and monthly trends across five document categories.'
+    ],
+    features: ['47,000+ synthetic operational rows', 'Simulated quality-failure analysis', 'SLA and exception KPIs', 'Five document categories'],
+    metrics: [{ value: '47K+', label: 'Synthetic rows analyzed' }, { value: '55%', label: 'Simulated failures from two error types' }, { value: '5', label: 'Document categories' }, { value: 'KPI', label: 'Quality and SLA monitoring' }],
+    github: 'https://github.com/venkat5203/data-quality-sla-monitoring-', motif: 'flow'
+  },
+  {
+    id: 'sales-operations', index: '04', title: 'Sales & Operations Data Analysis', year: 'Case study', kind: 'Data Analytics · Dashboard',
     summary: 'Prepared sales and operations data for reporting, then built a Power BI dashboard to track business performance and completion trends.',
     stack: ['SQL', 'Python', 'Pandas', 'Excel', 'Power BI'],
     contribution: [
