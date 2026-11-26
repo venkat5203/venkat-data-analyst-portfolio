@@ -68,23 +68,10 @@ export const projects: Project[] = [
     live: 'https://retailrocket-recommender-retailrock.vercel.app/',
     motif: 'tenants'
   },
-  {
-    id: 'sales-operations', index: '03', title: 'Sales & Operations Data Analysis', year: 'Case study', kind: 'Data Analytics · Dashboard',
-    summary: 'Prepared sales and operations data for reporting, then built a Power BI dashboard to track business performance and completion trends.',
-    stack: ['SQL', 'Python', 'Pandas', 'Excel', 'Power BI'],
-    contribution: [
-      'Cleaned and transformed sales/operations data using Python, Pandas and SQL, structuring datasets by region and time period for analysis.',
-      'Built a Power BI dashboard to monitor sales, average order value and on-time completion.',
-      'Translated dashboard observations into actionable business insights for operational reporting.'
-    ],
-    features: ['Regional and time-based segmentation', 'Sales tracking', 'Average order value', 'On-time completion'],
-    metrics: [{ value: 'Power BI', label: 'Dashboard' }, { value: '3', label: 'Core KPIs tracked' }, { value: 'SQL + Python', label: 'Data preparation' }, { value: 'Insights', label: 'Reporting output' }],
-    motif: 'flow'
-  }
 ];
 export type TimelineItem = { period: string; title: string; org: string; place?: string; kind: string; points: string[] };
 export const timeline: TimelineItem[] = [
-  { period: 'Apr 2024 — Sep 2026', title: 'Analyst – Data Operations & Reporting', org: 'Ardem Data Services Pvt. Ltd.', place: 'Hyderabad', kind: 'Work', points: ['Validated and analyzed 60+ records daily using Excel, business rules and structured investigation.', 'Monitored SLA, turnaround time, throughput, accuracy and exception metrics; reconciled results against business requirements.', 'Performed root-cause analysis across document workflows and prepared KPI reports and reconciliation frameworks for quality monitoring.'] },
+  { period: 'Apr 2024 — Nov 2026', title: 'Analyst – Data Operations & Reporting', org: 'Ardem Data Services Pvt. Ltd.', place: 'Hyderabad', kind: 'Work', points: ['Validated and analyzed 60+ records daily using Excel, business rules and structured investigation.', 'Monitored SLA, turnaround time, throughput, accuracy and exception metrics; reconciled results against business requirements.', 'Performed root-cause analysis across document workflows and prepared KPI reports and reconciliation frameworks for quality monitoring.'] },
   { period: 'Oct 2023 — Jan 2024', title: 'GO-AI Associate – Data Annotation & Quality', org: 'Amazon Development Centre India Pvt. Ltd.', place: 'Hyderabad', kind: 'Work', points: ['Reviewed high-volume content data against quality rules and reported 95% accuracy against internal QA benchmarks.', 'Identified data discrepancies, edge cases and quality gaps; documented findings to support data consistency and reporting.', 'Worked to strict quality, security and turnaround-time requirements.'] },
   { period: '2024', title: 'Bachelor of Engineering, Mechanical Engineering', org: 'MLR Institute of Technology and Management', place: 'Hyderabad', kind: 'Education', points: ['Completed Bachelor of Engineering in Mechanical Engineering.'] },
 ];
