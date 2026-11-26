@@ -39,31 +39,31 @@ export type Metric = { value: string; label: string };
 export type Project = { id: string; index: string; title: string; year: string; kind: string; summary: string; stack: string[]; contribution: string[]; features: string[]; metrics: Metric[]; github?: string; live?: string; motif: 'scan' | 'flow' | 'tenants' };
 export const projects: Project[] = [
   {
-    id: 'real-retail-data-quality', index: '01', title: 'Real-World Retail Data Quality & Analytics', year: 'Live project', kind: 'Data Analytics · Data Quality · Business Intelligence',
-    summary: 'Built a reproducible Python data-quality and analytics pipeline using the documented UCI Online Retail historical transaction dataset. Audits missing values, duplicates, invalid quantities and prices, and separates cancellation transactions for contextual analysis.',
+    id: 'real-retail-data-quality', index: '01', title: '2026 Retail Product Data Quality & Analytics', year: 'Live project', kind: 'Data Analytics · Data Quality · Business Intelligence',
+    summary: 'Built a reproducible Python quality-audit pipeline using Open Food Facts product records reported as modified in 2026. Audits missing product attributes, duplicate barcodes, invalid nutrient values and record completeness. This is product-catalogue data, not sales or transaction data.',
     stack: ['Python', 'Pandas', 'SQL', 'SQLite', 'React', 'Vite', 'Recharts'],
     contribution: [
-      'Created a repeatable pipeline that downloads and verifies the public UCI source file, preserves the raw workbook, and generates audit and analysis outputs.',
-      'Applied documented quality rules for missing customer IDs, duplicate rows, non-positive quantities and prices, and cancellation invoices.',
-      'Built SQL analysis outputs and an interactive dashboard for monthly revenue, country performance, product performance and data-quality findings.'
+      'Created a repeatable pipeline that retrieves and hashes a bounded Open Food Facts API snapshot, filters product records by last-modified date from 1 January 2026, and records source metadata.',
+      'Applied quality rules for missing names, brands, categories, ingredients and nutrition fields, duplicate barcodes, barcode format and negative nutrient values.',
+      'Built SQLite and SQL analysis outputs plus an interactive dashboard for catalogue freshness, completeness, category and brand coverage, recently updated products and quality findings.'
     ],
-    features: ['UCI Online Retail historical data', 'Missing-value and duplicate audit', 'Cancellation and invalid-value checks', 'Revenue and product dashboard'],
-    metrics: [{ value: 'UCI', label: 'Documented public source' }, { value: 'Python', label: 'Reproducible audit pipeline' }, { value: 'SQLite', label: 'SQL analysis database' }, { value: 'Live', label: 'Interactive dashboard' }],
+    features: ['Open Food Facts records updated in 2026', 'Missing-field and barcode audit', 'Nutrition validation and completeness', 'Catalogue freshness dashboard'],
+    metrics: [{ value: '2026', label: 'Required product update year' }, { value: 'Python', label: 'Reproducible audit pipeline' }, { value: 'SQLite', label: 'SQL analysis database' }, { value: 'Live', label: 'Interactive dashboard' }],
     github: 'https://github.com/venkat5203/real-world-retail-data-quality-analytics',
     live: 'https://real-retail-data-quality-analytics.vercel.app/',
     motif: 'scan'
   },
   {
-    id: 'retailrocket-recommender', index: '02', title: 'RetailRocket Session-Based Recommendation System', year: 'Live project', kind: 'Recommendation Systems · Ranking · Evaluation',
-    summary: 'Developed a product recommendation workflow around RetailRocket behavioural data, with session-oriented recommendations and offline benchmark experiments to compare ranking approaches.',
+    id: 'retailrocket-recommender', index: '02', title: 'Current Product Content-Based Recommendation System', year: 'Live project', kind: 'Recommendation Systems · Content Similarity · Ranking',
+    summary: 'Developed a content-based recommendation workflow using Open Food Facts product records reported as modified in 2026. Product names, brands, categories, quantities, ingredients and nutrition grades are converted into TF-IDF features, ranked with cosine similarity and diversified using MMR. No customer behaviour or purchase events are claimed.',
     stack: ['Python', 'Pandas', 'Recommendation Systems', 'Ranking', 'Offline Evaluation'],
     contribution: [
-      'Built a recommendation workflow using RetailRocket interaction data to produce product suggestions from user-session behaviour.',
-      'Ran benchmark experiments to compare recommendation variants and inspect their offline evaluation results.',
-      'Explored maximal marginal relevance (MMR) reranking to balance recommendation relevance with item diversity.'
+      'Built a product-content recommendation workflow over the current 2026-updated Open Food Facts catalogue.',
+      'Created TF-IDF text features from product names, brands, categories, quantities, ingredients and nutrition grades, then ranked products by cosine similarity.',
+      'Applied Maximal Marginal Relevance (MMR) reranking to balance relevance with diversity in the top recommendations.'
     ],
-    features: ['Session-oriented product recommendations', 'Candidate ranking experiments', 'Offline benchmark evaluation', 'MMR-based diversity reranking'],
-    metrics: [{ value: 'RetailRocket', label: 'Behavioural dataset' }, { value: 'Session', label: 'Recommendation context' }, { value: 'MMR', label: 'Diversity reranking' }, { value: 'Live', label: 'Interactive application' }],
+    features: ['2026-updated public product catalogue', 'TF-IDF product representations', 'Cosine similarity ranking', 'MMR diversity reranking'],
+    metrics: [{ value: '2026', label: 'Required product update year' }, { value: 'TF-IDF', label: 'Content representation' }, { value: 'MMR', label: 'Diversity reranking' }, { value: 'Live', label: 'Interactive application' }],
     github: 'https://github.com/venkat5203/retailrocket-recommender',
     live: 'https://retailrocket-recommender-retailrock.vercel.app/',
     motif: 'tenants'
