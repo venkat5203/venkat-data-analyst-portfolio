@@ -17,10 +17,8 @@ export const profile = {
 };
 
 export const stats = [
-  { value: 2.5, decimals: 1, suffix: '+', label: 'Years of experience' },
-  { value: 47000, decimals: 0, suffix: '+', label: 'Synthetic operational rows' },
-  { value: 95, decimals: 0, suffix: '%', label: 'Simulated QA accuracy' },
-  { value: 55, decimals: 0, suffix: '%', label: 'Simulated failures from two error types' },
+  { value: 2.5, decimals: 1, suffix: '+', label: 'Years of professional experience' },
+  { value: 2, decimals: 0, suffix: '', label: 'Live portfolio applications' },
 ];
 
 export const education = [
@@ -71,20 +69,7 @@ export const projects: Project[] = [
     motif: 'tenants'
   },
   {
-    id: 'data-quality-sla', index: '03', title: 'Data Quality & SLA Monitoring Analysis', year: 'Synthetic case study', kind: 'Data Analytics · Quality · SLA · Synthetic Dataset',
-    summary: 'Analyzed a 47,000+ row synthetic operational dataset to demonstrate quality-failure analysis and monitoring of accuracy, SLA compliance, exceptions and monthly trends. The records are generated for practice and are not real company data.',
-    stack: ['SQL', 'Python', 'Pandas', 'Excel'],
-    contribution: [
-      'Analyzed a generated operational dataset with SQL joins, CTEs, window functions and subqueries to investigate performance outliers and process-quality drivers.',
-      'Identified two error types responsible for 55% of the simulated quality failures, highlighting focus areas for root-cause analysis.',
-      'Created an Excel KPI dashboard using COUNTIFS, SUMIFS and AVERAGEIFS to track accuracy, SLA compliance, exceptions and monthly trends across five document categories.'
-    ],
-    features: ['47,000+ synthetic operational rows', 'Simulated quality-failure analysis', 'SLA and exception KPIs', 'Five document categories'],
-    metrics: [{ value: '47K+', label: 'Synthetic rows analyzed' }, { value: '55%', label: 'Simulated failures from two error types' }, { value: '5', label: 'Document categories' }, { value: 'KPI', label: 'Quality and SLA monitoring' }],
-    github: 'https://github.com/venkat5203/data-quality-sla-monitoring-', motif: 'flow'
-  },
-  {
-    id: 'sales-operations', index: '04', title: 'Sales & Operations Data Analysis', year: 'Case study', kind: 'Data Analytics · Dashboard',
+    id: 'sales-operations', index: '03', title: 'Sales & Operations Data Analysis', year: 'Case study', kind: 'Data Analytics · Dashboard',
     summary: 'Prepared sales and operations data for reporting, then built a Power BI dashboard to track business performance and completion trends.',
     stack: ['SQL', 'Python', 'Pandas', 'Excel', 'Power BI'],
     contribution: [
