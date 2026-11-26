@@ -56,7 +56,7 @@ export const projects: Project[] = [
   {
     id: 'retailrocket-recommender', index: '02', title: 'Current Product Content-Based Recommendation System', year: 'Live project', kind: 'Recommendation Systems · Content Similarity · Ranking',
     summary: 'Developed a content-based recommendation workflow using Open Food Facts product records reported as modified in 2026. Product names, brands, categories, quantities, ingredients and nutrition grades are converted into TF-IDF features, ranked with cosine similarity and diversified using MMR. No customer behaviour or purchase events are claimed.',
-    stack: ['Python', 'Pandas', 'Recommendation Systems', 'Ranking', 'Offline Evaluation'],
+    stack: ['Python', 'scikit-learn', 'TF-IDF', 'Cosine Similarity', 'Maximal Marginal Relevance (MMR)'],
     contribution: [
       'Built a product-content recommendation workflow over the current 2026-updated Open Food Facts catalogue.',
       'Created TF-IDF text features from product names, brands, categories, quantities, ingredients and nutrition grades, then ranked products by cosine similarity.',
