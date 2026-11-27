@@ -296,10 +296,10 @@ export default function Projects() {
             <SplitText text="and shipped." delay={0.12} className="block font-serif font-normal tracking-[-0.03em] italic" />
           </h2>
         </div>
-        <p className="max-w-[34ch] text-sm text-muted md:text-right">Three projects from 2026. Open any card for the full case study.</p>
+        <p className="max-w-[34ch] text-sm text-muted md:text-right">Two selected projects. Open either card for the full case study.</p>
       </div>
 
-      <ul className="grid gap-x-6 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-x-6 gap-y-14 md:grid-cols-2 lg:grid-cols-2">
         {projects.map((p, i) => (
           <ProjectCard key={p.id} p={p} i={i} onOpen={() => setOpenId(p.id)} />
         ))}
