@@ -22,7 +22,7 @@ export const stats = [
 ];
 
 export const education = [
-  { school: 'MLR Institute of Technology and Management', place: 'Hyderabad', degree: 'Bachelor of Engineering, Mechanical Engineering', period: 'Course period: 2016–2020 · Degree completed 2024', score: '' },
+  { school: 'MLR Institute of Technology and Management', place: 'Hyderabad', degree: 'Bachelor of Engineering, Mechanical Engineering', period: 'Expected graduation: 2020 · Degree completed: 2024', score: '' },
 ];
 
 export type SkillCategory = { id: string; index: string; title: string; blurb: string; skills: string[] };
@@ -73,7 +73,7 @@ export type TimelineItem = { period: string; title: string; org: string; place?:
 export const timeline: TimelineItem[] = [
   { period: 'Apr 2024 — Nov 2026', title: 'Analyst – Data Operations & Reporting', org: 'Ardem Data Services Pvt. Ltd.', place: 'Hyderabad', kind: 'Work', points: ['Validated and analyzed 60+ records daily using Excel, business rules and structured investigation.', 'Monitored SLA, turnaround time, throughput, accuracy and exception metrics; reconciled results against business requirements.', 'Performed root-cause analysis across document workflows and prepared KPI reports and reconciliation frameworks for quality monitoring.'] },
   { period: 'Oct 2023 — Jan 2024', title: 'GO-AI Associate – Data Annotation & Quality', org: 'Amazon Development Centre India Pvt. Ltd.', place: 'Hyderabad', kind: 'Work', points: ['Reviewed high-volume content data against quality rules and reported 95% accuracy against internal QA benchmarks.', 'Identified data discrepancies, edge cases and quality gaps; documented findings to support data consistency and reporting.', 'Worked to strict quality, security and turnaround-time requirements.'] },
-  { period: '2016–2020 (course period)', title: 'Bachelor of Engineering, Mechanical Engineering', org: 'MLR Institute of Technology and Management', place: 'Hyderabad', kind: 'Education', points: ['Course period: 2016–2020. Degree requirements were completed and the degree was awarded in 2024 after clearing supplementary examinations.'] },
+  { period: 'Expected graduation: 2020 · Completed: 2024', title: 'Bachelor of Engineering, Mechanical Engineering', org: 'MLR Institute of Technology and Management', place: 'Hyderabad', kind: 'Education', points: ['Expected graduation was 2020. Degree requirements were completed and the degree was awarded in 2024 after clearing supplementary examinations.'] },
 ];
 export type Recognition = { title: string; org: string; detail: string; kind: string; link?: string };
 export const recognitions: Recognition[] = [
