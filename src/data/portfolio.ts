@@ -39,31 +39,31 @@ export type Metric = { value: string; label: string };
 export type Project = { id: string; index: string; title: string; year: string; kind: string; summary: string; stack: string[]; contribution: string[]; features: string[]; metrics: Metric[]; github?: string; live?: string; motif: 'scan' | 'flow' | 'tenants' };
 export const projects: Project[] = [
   {
-    id: 'real-retail-data-quality', index: '01', title: 'Real-World Retail Data Quality & Analytics', year: 'Historical dataset · 2010–2011', kind: 'Data Analytics · Data Quality · Business Intelligence',
-    summary: 'Built a reproducible Python quality-audit pipeline using the UCI Online Retail transaction dataset. The source contains 541,909 real historical invoice-line records dated December 2010 to December 2011. The project audits missing values, exact duplicates, cancellation invoices, non-positive quantities and prices, then creates a cleaned analysis copy and SQL-ready outputs.',
+    id: 'real-retail-data-quality', index: '01', title: '2025–2026 Retail Sales & Inventory Data Quality Analytics', year: '2025–2026 observed data', kind: 'Data Analytics · Data Quality · Business Intelligence',
+    summary: 'Built a reproducible Python data-quality pipeline using Mendeley Data’s Retail Transactions and Stocks dataset. The verified sales observations run from 1 June 2025 to 24 April 2026 and cover 125,751 sales rows across 40 stores and 2,326 SKUs, alongside 284,755 inventory records. The pipeline checks missing values, duplicates, invalid dates, return activity and stock data.',
     stack: ['Python', 'Pandas', 'SQL', 'SQLite', 'React', 'Vite', 'Recharts'],
     contribution: [
-      'Downloaded the dataset from the UCI Machine Learning Repository, recorded its SHA-256 hash, and checked its expected schema and reference row count.',
-      'Audited missing fields, exact duplicate rows, non-positive quantities and unit prices, and cancellation / credit invoices.',
-      'Built a separate cleaned transaction dataset, SQLite analysis database, SQL examples and an interactive business-quality dashboard.'
+      'Retrieved and SHA-256 verified the sales and inventory source files, and measured the transaction and stock date ranges directly from their date fields.',
+      'Audited missing identifiers and values, duplicate rows, date validity, negative quantities and sales amounts, while retaining return activity for separate review.',
+      'Built SQL-ready SQLite tables and an interactive dashboard for monthly sales, store performance, product sales, channels, inventory snapshots and data-quality findings.'
     ],
-    features: ['541,909 historical transaction rows', '5,268 exact duplicate rows flagged', 'Missing CustomerID and cancellation audit', 'Monthly revenue and country analysis'],
-    metrics: [{ value: '541,909', label: 'Source transaction rows' }, { value: '5,268', label: 'Exact duplicate rows flagged' }, { value: '524,878', label: 'Clean positive-sale rows' }, { value: '£10.64M', label: 'Clean positive-sales revenue' }],
+    features: ['125,751 sales rows · 284,755 inventory rows', '40 stores · 2,326 SKUs', 'Observed dates: Jun 2025 – Apr 2026', 'Sales, returns, inventory and data-quality audit'],
+    metrics: [{ value: '125,751', label: 'Observed sales rows' }, { value: '284,755', label: 'Inventory rows' }, { value: '40', label: 'Retail stores' }, { value: '2,326', label: 'SKUs' }],
     github: 'https://github.com/venkat5203/real-world-retail-data-quality-analytics',
     live: 'https://real-retail-data-quality-analytics.vercel.app/',
     motif: 'scan'
   },
   {
-    id: 'retailrocket-recommender', index: '02', title: 'RetailRocket E-commerce Recommendation System', year: 'Historical dataset · 2015', kind: 'Recommendation Systems · Collaborative Filtering · Ranking Evaluation',
-    summary: 'Built a recommendation workflow using the authentic RetailRocket e-commerce behavioural dataset: 2.76 million view, add-to-cart and transaction events from May to September 2015. Compared popularity, item-item collaborative filtering (Item-KNN) and latent-factor SVD using a time-based offline evaluation split.',
-    stack: ['Python', 'Pandas', 'NumPy', 'SciPy', 'scikit-learn', 'Item-KNN', 'Truncated SVD'],
+    id: 'retailrocket-recommender', index: '02', title: '2025 Online Shopping Session Recommender (OPeRA)', year: '2025 observed data', kind: 'Recommendation Systems · Session Behaviour · Content Similarity',
+    summary: 'Built an interactive product recommendation demo using OPeRA, a real-user online-shopping behaviour dataset collected from 24 March to 8 May 2025. It contains 28,904 observed actions across 692 sessions, with 652 products carrying ASIN metadata. The app combines session co-visitation with TF-IDF/cosine product similarity and MMR diversity reranking.',
+    stack: ['Python', 'Pandas', 'PyArrow', 'scikit-learn', 'TF-IDF', 'Cosine Similarity', 'MMR'],
     contribution: [
-      'Prepared visitor-item interactions from view, add-to-cart and transaction events, with stronger weights for higher-intent events.',
-      'Applied chronological data splitting and interaction filtering to reduce future-data leakage in offline evaluation.',
-      'Compared popularity, Item-KNN and SVD models using Precision@K, Recall@K, HitRate@K, NDCG@K, MAP@K and catalogue coverage; added a visitor recommendation explorer.'
+      'Parsed action-level session data and product metadata from OPeRA Parquet files, preserving the actual 2025 timestamps and source attribution.',
+      'Built product-title TF-IDF representations, cosine-similarity recommendations, session co-visitation and MMR reranking for product and session exploration.',
+      'Added chronological session holdout checks and documented that the small number of eligible next-product targets is insufficient for reliable offline accuracy claims.'
     ],
-    features: ['2,756,101 behavioural events', '1,407,580 visitors and 235,061 items', 'Popularity, Item-KNN and SVD models', 'Time-based offline ranking evaluation'],
-    metrics: [{ value: '2.76M', label: 'Behavioural events' }, { value: '1.41M', label: 'Visitors' }, { value: '0.0161', label: 'Item-KNN NDCG@10' }, { value: '0.0225', label: 'SVD Recall@10' }],
+    features: ['28,904 real shopping actions · 692 sessions', '652 products with ASIN metadata', 'Observed dates: Mar–May 2025', 'Session co-visitation · TF-IDF · cosine similarity · MMR'],
+    metrics: [{ value: '28,904', label: 'Observed shopping actions' }, { value: '692', label: 'Shopping sessions' }, { value: '652', label: 'Products with metadata' }, { value: '2025', label: 'Actual event year' }],
     github: 'https://github.com/venkat5203/retailrocket-recommender',
     live: 'https://retailrocket-recommender-retailrock.vercel.app/',
     motif: 'tenants'
