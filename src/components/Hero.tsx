@@ -8,7 +8,7 @@ import DotField from './fx/DotField';
 import { useTheme } from '../lib/theme';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const NAME = 'VENKAT';
+const NAME = profile.fullName.toUpperCase();
 
 function RotatingRole({ start }: { start: boolean }) {
   const [i, setI] = useState(0);
@@ -130,7 +130,7 @@ export default function Hero({ ready }: { ready: boolean }) {
         {/* The giant name. She stands in front of it (z-10 film vs z-0 name). */}
         <motion.h1
           style={{ x: nameX }}
-          className="relative z-0 -mx-1 mt-2 text-[18.6vw] md:text-[clamp(4.4rem,20.5vw,22rem)] leading-[0.8] font-semibold tracking-[-0.065em] whitespace-nowrap select-none md:-mx-2"
+          className="relative z-0 -mx-1 mt-2 text-[6.7vw] md:text-[clamp(3rem,6.7vw,8rem)] leading-[0.9] font-semibold tracking-[-0.065em] whitespace-nowrap select-none md:-mx-2"
           aria-label={`Hello, I'm ${profile.name}`}
         >
           <motion.span aria-hidden="true" className="inline-block" style={{ x: nameShiftX }}>
