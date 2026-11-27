@@ -32,14 +32,32 @@ export default function Experience() {
             {timeline.map((t, i) => (
               <Reveal as="li" key={t.title} delay={i * 0.06} className={`relative pl-8 ${i > 0 ? 'mt-10' : ''}`}>
                 <span aria-hidden="true" className="absolute top-1.5 left-0 h-[11px] w-[11px] rounded-full border border-fg bg-bg" />
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h4 className="text-[clamp(1.2rem,1.7vw,1.5rem)] leading-tight font-medium tracking-[-0.03em]">{t.title}</h4>
-                  <span className="font-mono text-[11px] tracking-[0.08em] text-muted">{t.period}</span>
-                </div>
-                <p className="mt-1 text-sm text-muted">
-                  <span className="text-fg">{t.org}</span>
-                  {t.place ? ` · ${t.place}` : ''}
-                </p>
+                {t.kind === 'Education' ? (
+                  <div className="flex flex-col items-start">
+                    <h4 className="text-[clamp(1.35rem,2vw,1.7rem)] leading-tight font-medium tracking-[-0.03em]">{t.title}</h4>
+                    <div className="mt-6 flex items-center gap-4 border-l border-line pl-4">
+                      <div>
+                        <span className="font-mono text-[10px] tracking-[0.2em] text-muted uppercase">Academic period</span>
+                        <p className="mt-2 text-[clamp(1.7rem,3vw,2.4rem)] leading-none font-medium tracking-[-0.045em]">{t.period}</p>
+                      </div>
+                    </div>
+                    <p className="mt-6 text-sm text-muted">
+                      <span className="text-fg">{t.org}</span>
+                      {t.place ? ` · ${t.place}` : ''}
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                      <h4 className="text-[clamp(1.2rem,1.7vw,1.5rem)] leading-tight font-medium tracking-[-0.03em]">{t.title}</h4>
+                      <span className="font-mono text-[11px] tracking-[0.08em] text-muted">{t.period}</span>
+                    </div>
+                    <p className="mt-1 text-sm text-muted">
+                      <span className="text-fg">{t.org}</span>
+                      {t.place ? ` · ${t.place}` : ''}
+                    </p>
+                  </>
+                )}
                 <ul className="mt-3 space-y-1.5 text-[15px] leading-relaxed text-muted">
                   {t.points.map((pt) => (
                     <li key={pt} className="flex gap-3">
